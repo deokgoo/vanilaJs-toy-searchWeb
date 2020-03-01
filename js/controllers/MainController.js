@@ -15,13 +15,13 @@ export const init = () => {
 const MainController = {
   eventBind() {
     formView.on('@submit', e => this.onSubmit(e.detail.inputData))
-            .on('@reset', e => this.onResetForm());
+            .on('@reset', _ => this.onResetForm());
   },
   async onSubmit(inputData) {
     const searchData = await ResultModel.search(inputData);
     resultView.setResult(searchData);
   },
   onResetForm() {
-
+    resultView.resetResult();
   }
 };

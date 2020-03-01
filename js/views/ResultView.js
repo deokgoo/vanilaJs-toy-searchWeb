@@ -1,3 +1,5 @@
+import CardComponent from '../components/Card.js';
+
 export default class ResultView {
   setup(el) {
     this.el = el;
@@ -5,7 +7,12 @@ export default class ResultView {
   }
 
   setResult(resData) {
-    console.log(resData);
+    const cardComponent = CardComponent(resData);
+    this.el.innerHTML = cardComponent;
+  }
+
+  resetResult() {
+    this.el.innerHTML = "";
   }
 
   emit(event, data) {
